@@ -1,0 +1,14 @@
+hydra:
+  run:
+    dir: ../log/${now:%Y-%m-%d}/${now:%H-%M-%S}
+defaults:
+    - mlp_conf: nuswide
+    - cnn_conf: cifar10
+    - _self_
+    - override hydra/job_logging: disabled
+
+localhost: "8805"
+num_models: 2
+num_clients: 2
+num_surrogates: 1
+model_type: "mlp"

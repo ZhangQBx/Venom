@@ -1,0 +1,59 @@
+seed: 22
+surrogate_seed: 2
+dataset: "mnist"
+type: "image"
+task: "classification"
+path:  "../datasets/image"
+checkpoint_path: "./checkpoints/mnist"
+epochs: 60
+replace_aux_with_noise: False
+
+client_device: "cuda"
+server_device: "cuda"
+
+bottom_model_layers: 3
+surrogate_model_layers: 3
+bottom_model_output_dim: 128
+cosine_alpha: 0.1
+intra_beta: 0.1
+task_theta: 0.5
+
+defense: "noise"
+noise_std: 1e-2
+pruning_ratio: 0.5
+
+lr: 1e-3
+bs: 256
+
+lr_ms: 1e-3
+bs_ms: 256
+alpha_ms: 0.5
+beta_ms: 0.5
+
+lr_dr: 1e-2
+bs_dr: 1
+
+contrastive_hidden_dim: 256
+contrastive_output_dim: 256
+contrastive_projection_dim: 30
+contrastive_epochs: 60
+
+contrastive_noise_mean: 0.0
+contrastive_noise_std: 0.1
+contrastive_dropout_rate: 0.5
+contrastive_temp: 0.1
+
+bs_contrastive: 256
+lr_contrastive: 1e-3
+
+knn_k: null
+hnsw_m: 16
+hnsw_ef_construction: 200
+hnsw_ef_search: 50
+
+top_model_layers: 3
+tau_soft: 2.0
+knn_ratio: 0.1
+contrastive_encoder_layers: 3
+optimizer_ms: Adam
+optimizer_contrastive: Adam
